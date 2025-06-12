@@ -1,0 +1,24 @@
+- name: Create source archives (tar.gz and zip)
+  run: |
+    VERSION=${{ github.ref_name }}
+    BASENAME=ros2_skynet-${VERSION}
+    mkdir -p release-src/${BASENAME}
+    rsync -a --exclude='.git' ./ release-src/${BASENAME}/
+
+    git submodule foreach --recursive '
+      mkdir -p ../release-src/'"${BASENAME}"'/$sm_path &&
+      rsync -a --exclude=.git ./ ../release-src/'"${BASENAME}"'/$sm_path
+    '
+
+    cd release-src
+    tar -czf ${BASENAME}.tar.gz ${BASENAME}
+    zip -r ${BASENAME}.zip ${BASENAME}
+
+- name: Upload release assets
+  uses: softprops/action-gh-release@v2
+  with:
+    files: |
+      release-src/ros2_skynet-${{ github.ref_name }}.tar.gz
+      release-src/ros2_skynet-${{ github.ref_name }}.zip
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

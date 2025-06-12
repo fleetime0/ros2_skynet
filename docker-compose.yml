@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  ros2_skynet:
+    image: ghcr.io/fleetime0/ros2_skynet
+    container_name: ros2_skynet
+    privileged: true
+    network_mode: "host"
+    restart: unless-stopped
+    volumes:
+      - /dev:/dev
+      - ./src:/ros2_ws/src
+    command: sleep infinity

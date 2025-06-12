@@ -1,0 +1,6 @@
+[submodule "src/usb_cam"]
+	path = src/usb_cam
+	url = https://github.com/fleetime0/usb_cam.git
+[submodule "src/web_video_server"]
+	path = src/web_video_server
+	url = https://github.com/fleetime0/web_video_server.git
