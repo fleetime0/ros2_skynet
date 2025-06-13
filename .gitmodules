@@ -4,3 +4,6 @@
 [submodule "src/web_video_server"]
 	path = src/web_video_server
 	url = https://github.com/fleetime0/web_video_server.git
+[submodule "src/ros2_astra_camera"]
+	path = src/ros2_astra_camera
+	url = https://github.com/fleetime0/ros2_astra_camera.git
