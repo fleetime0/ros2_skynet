@@ -1,0 +1,104 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+# 访问修饰符（如 public:）的缩进偏移量，-4 表示减少一级缩进
+AccessModifierOffset: -2
+# 是否对连续的赋值语句对齐
+AlignConsecutiveAssignments: false
+# 是否对连续的声明语句对齐
+AlignConsecutiveDeclarations: false
+# 是否对表达式中的操作数对齐，例如多个换行的加法表达式
+AlignOperands: true
+# 是否对行尾注释对齐
+AlignTrailingComments: false
+# 模板声明是否总是换行
+AlwaysBreakTemplateDeclarations: Yes
+# 控制大括号换行样式
+BraceWrapping:
+  # case 标签后是否换行
+  AfterCaseLabel: false
+  # class 声明后是否换行
+  AfterClass: false
+  # if/for/while 等控制语句后是否换行
+  AfterControlStatement: false
+  # enum 声明后是否换行
+  AfterEnum: false
+  # 函数定义后是否换行
+  AfterFunction: false
+  # 命名空间后是否换行
+  AfterNamespace: false
+  # struct 声明后是否换行
+  AfterStruct: false
+  # union 声明后是否换行
+  AfterUnion: false
+  # extern "C" {} 块后是否换行
+  AfterExternBlock: false
+  # catch 前是否换行
+  BeforeCatch: false
+  # else 前是否换行
+  BeforeElse: false
+  # lambda 表达式体前是否换行
+  BeforeLambdaBody: false
+  # while (condition); 循环体前是否换行
+  BeforeWhile: false
+  # 空函数体是否拆成独立一行
+  SplitEmptyFunction: true
+  # 空结构体是否拆成独立一行
+  SplitEmptyRecord: true
+  # 空命名空间是否拆成独立一行
+  SplitEmptyNamespace: true
+# 大括号放置风格，自定义（参见 BraceWrapping）
+BreakBeforeBraces: Custom
+# 构造函数初始化列表中冒号后的换行方式（AfterColon：在冒号之后换行）
+BreakConstructorInitializers: AfterColon
+# 构造函数初始化列表中逗号前是否换行
+BreakConstructorInitializersBeforeComma: false
+# 每行最大字符数限制
+ColumnLimit: 120
+# 构造函数初始化列表是否一行或一项一行
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+# 换行后续行的额外缩进宽度
+ContinuationIndentWidth: 8
+# include 的分类规则，优先级从小到大
+IncludeCategories:
+  - Regex: '^<.*'     # 角括号形式的系统头文件，优先级最高
+    Priority: 1
+  - Regex: '^".*'     # 双引号形式的本地头文件
+    Priority: 2
+  - Regex: '.*'       # 其他所有匹配项，优先级最低
+    Priority: 3
+# 判断一个 include 是否为主头文件的正则
+IncludeIsMainRegex: '([-_](test|unittest))?$'
+# case 标签是否缩进
+IndentCaseLabels: true
+# 普通缩进宽度（空格数）
+IndentWidth: 2
+# 文件末尾是否插入换行符
+InsertNewlineAtEOF: true
+# 宏定义区域开始标记（未使用）
+MacroBlockBegin: ''
+# 宏定义区域结束标记（未使用）
+MacroBlockEnd: ''
+# 最大连续空行数
+MaxEmptyLinesToKeep: 2
+# 命名空间内部是否缩进（None 表示不缩进）
+NamespaceIndentation: None
+# C 风格强制类型转换后是否添加空格
+SpaceAfterCStyleCast: true
+# `template` 关键字后是否加空格（如 `template <typename T>`）
+SpaceAfterTemplateKeyword: false
+# 范围 for 循环中，冒号前是否加空格（如 `for (x : y)`）
+SpaceBeforeRangeBasedForLoopColon: false
+# 空的函数调用括号内是否添加空格（如 `func( )`）
+SpaceInEmptyParentheses: false
+# 模板尖括号中是否加空格（如 `std::vector< int >`）
+SpacesInAngles: false
+# 条件语句（if/while）中是否在括号内加空格
+SpacesInConditionalStatement: false
+# C 风格强制类型转换括号内是否加空格
+SpacesInCStyleCastParentheses: false
+# 所有括号内是否加空格
+SpacesInParentheses: false
+# Tab 替代空格的宽度
+TabWidth: 2
+...

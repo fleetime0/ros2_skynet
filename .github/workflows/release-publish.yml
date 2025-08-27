@@ -1,0 +1,48 @@
+name: Create and Upload Release Archives
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set up environment variables
+        run: |
+          echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+          echo "BASENAME=ros2_skynet-${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
+      - name: Create source archives (tar.gz and zip)
+        run: |
+          mkdir -p release-src/${{ env.BASENAME }}
+          rsync -a --exclude='.git' ./ release-src/${{ env.BASENAME }}/
+
+          git submodule foreach --recursive '
+            mkdir -p ../release-src/${{ env.BASENAME }}/$sm_path &&
+            rsync -a --exclude=.git ./ ../release-src/${{ env.BASENAME }}/$sm_path
+          '
+
+          cd release-src
+          tar -czf ${{ env.BASENAME }}.tar.gz ${{ env.BASENAME }}
+          zip -r ${{ env.BASENAME }}.zip ${{ env.BASENAME }}
+
+      - name: Upload release assets to manually created release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: |
+            release-src/${{ env.BASENAME }}.tar.gz
+            release-src/${{ env.BASENAME }}.zip
+          allow_updates: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}

@@ -1,0 +1,1 @@
+SUBSYSTEM=="video4linux", KERNEL=="video[0-9]*", ATTRS{idVendor}=="2ce3", ATTRS{idProduct}=="0010", SYMLINK+="rgb_cam", MODE:="0666"

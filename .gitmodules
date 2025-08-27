@@ -1,0 +1,12 @@
+[submodule "src/usb_cam"]
+	path = src/usb_cam
+	url = https://github.com/fleetime0/usb_cam.git
+[submodule "src/web_video_server"]
+	path = src/web_video_server
+	url = https://github.com/fleetime0/web_video_server.git
+[submodule "src/ros2_astra_camera"]
+	path = src/ros2_astra_camera
+	url = https://github.com/fleetime0/ros2_astra_camera
+[submodule "src/micro-ROS-Agent"]
+	path = src/micro-ROS-Agent
+	url = https://github.com/micro-ROS/micro-ROS-Agent.git

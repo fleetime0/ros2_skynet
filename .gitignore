@@ -1,0 +1,11 @@
+.vscode/
+
+*.swp
+*.swo
+*~
+*.bak
+.DS_Store
+
+build/
+install/
+log/
