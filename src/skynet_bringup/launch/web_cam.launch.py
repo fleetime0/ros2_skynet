@@ -21,13 +21,6 @@ def generate_launch_description():
         )
     )
 
-    # usb_camera_launch_dir = os.path.join(
-    #     get_package_share_directory("skynet_bringup"), "launch", "camera.launch.py"
-    # )
-    # ld.add_action(
-    #     IncludeLaunchDescription(PythonLaunchDescriptionSource(usb_camera_launch_dir))
-    # )
-
     astra_pro_plus_launch_dir = os.path.join(
         get_package_share_directory("astra_camera"),
         "launch",

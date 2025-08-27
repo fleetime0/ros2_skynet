@@ -1,9 +1,8 @@
 version: "3.8"
 services:
   ros2_skynet:
-    image: ghcr.io/fleetime0/ros2_skynet
+    image: ghcr.io/fleetime0/ros2_skynet:v0.0.1
     container_name: ros2_skynet
-    pull_policy: always
     privileged: true
     network_mode: "host"
     restart: unless-stopped

@@ -7,3 +7,6 @@
 [submodule "src/ros2_astra_camera"]
 	path = src/ros2_astra_camera
 	url = https://github.com/fleetime0/ros2_astra_camera
+[submodule "src/micro-ROS-Agent"]
+	path = src/micro-ROS-Agent
+	url = https://github.com/micro-ROS/micro-ROS-Agent.git
